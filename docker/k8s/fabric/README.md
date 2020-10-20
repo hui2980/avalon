@@ -12,6 +12,9 @@ This serves as a playground to setup k8s cluster for Avalon Fabric proxy model.
   `docker-compose -f docker-compose.yaml -f docker-compose-sgx.yaml build avalon-enclave-manager`
 - Start fabric network.
   ```bash
+   # In the docker network named minifab, the domain name .example.com should not use proxy. For example peer1.org0.example.com:7051
+   export no_proxy=.example.com,$no_proxy
+   export NO_PROXY=.example.com,$NO_PROXY
    # Go to avalon root directory and run the below command
    ./scripts/start_fabric.sh -u
   ```
